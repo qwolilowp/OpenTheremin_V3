@@ -178,7 +178,7 @@ void Application::loop() {
   if ((registerPotValue-registerPotValueL) >= HYST_VAL || (registerPotValueL-registerPotValue) >= HYST_VAL) registerPotValueL=registerPotValue;
   if (((wavePotValue-wavePotValueL) >= HYST_VAL) || ((wavePotValueL-wavePotValue) >= HYST_VAL)) wavePotValueL=wavePotValue;
 
-  vWavetableSelector=wavePotValueL>>7;
+  vWavetableSelector=wavePotValueL>>6;
   registerValue=4-(registerPotValueL>>8);  
 
   if (_state == PLAYING && HW_BUTTON_PRESSED) {
@@ -235,6 +235,7 @@ void Application::loop() {
     resetTimer();
     Serial.write(pitch & 0xff);              // Send char on serial (if used)
     Serial.write((pitch >> 8) & 0xff);
+    
   }
 #endif
 
@@ -512,7 +513,6 @@ void Application::delay_NOP(unsigned long time) {
       __asm__ __volatile__ ("nop");
   }
 }
-
 
 
 
