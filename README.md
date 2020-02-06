@@ -26,3 +26,14 @@ Written by Urs Gaudenz, GaudiLabs, 2016
 GNU license, check LICENSE file for more information
 All text above must be included in any redistribution
 
+# Wavetable Editor
+
+I added a litte tool to draw a wave and export it to c-file wavetable. Include the "thermein_sinetabelX.c" to the arduino project. Add the *include* statement to the "ihandler.cpp", add the variable name of the table to the *wavetables* of "ihandler.cpp". Nice. If you add a lot of tables, adjust the right bitshift to the *wavePotValueL* variable that gives the *vWavetableSelector* value in the "application.cpp" (line 181). Its now set to 6. A smaller value will increase the possible palces for wavetables (see *select* statement in "ihandlers.cpp" line 148).
+
+https://www.z-tennot-iu.de/d2w/
+
+(v.01)
+
+Todo: 
+1. better Interpolation
+
